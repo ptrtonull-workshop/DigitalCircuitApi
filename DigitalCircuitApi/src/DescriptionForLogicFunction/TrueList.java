@@ -1,3 +1,4 @@
+package DescriptionForLogicFunction;
 public class TrueList {
 	static int TrueList[]= new int[16]; //定义一个真值表，参数是输出值，序号是排列号码
 	static String[]simple= {"A","B","C","D","A\'","B\'","C\'","D\'"};

@@ -1,3 +1,4 @@
+package DescriptionForLogicFunction;
 public class SingleLinkedList {
     private int size;//链表节点的个数
     private Node head;//头节点

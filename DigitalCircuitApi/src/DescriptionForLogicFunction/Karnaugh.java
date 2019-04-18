@@ -1,3 +1,6 @@
+package DescriptionForLogicFunction;
+import DescriptionForLogicFunction.SingleLinkedList.Node;
+
 public class Karnaugh {
 	static int MapList[][]=new int[4][4];
 	public static void KarnaughToLinkedList(int MapListTemp[][]) {
