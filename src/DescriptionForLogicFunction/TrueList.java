@@ -1,8 +1,44 @@
 package DescriptionForLogicFunction;
 public class TrueList {
+	/*
+	 * 初始化选项
+	 */
 	static int TrueList[]= new int[16]; //定义一个真值表，参数是输出值，序号是排列号码
+	static int binNum[][]=new int[5][16];
 	static String[]simple= {"A","B","C","D","A\'","B\'","C\'","D\'"};
 	
+	public static void  Init()  {		//初始化真值表
+		int temp=0;
+		int m=0;
+		for(int x=0;x<4;x++) {  //初始化第一项
+			binNum[0][x]=0;
+		}
+		
+		for(int i=0;i<16;i++)
+			for(int j=0;j<5;j++) {
+				temp=i;
+				while(temp/2!=0) {
+					binNum[m][j]=temp%2;
+					temp=i/2;
+					m++;
+				}
+			}
+		for(int q=0;q<16;q++) {   //初始化输出值
+			binNum[4][q]=TrueList[q];
+		}
+	}
+	public static void printTureList(int TrueList[][]) {
+		for(int i=0;i<16;i++)
+			for(int j=0;j<5;j++) {
+				System.out.print(binNum[j][i]);
+				if(j==4) System.out.println("");
+				else System.out.print(" ");
+			}
+	}
+	
+	/*
+	 * 一些备用方法
+	 */
 	public static String returnStr(int num,int TrueOrFalse) {
 		if(TrueOrFalse==1) {
 			return simple[num-1];
@@ -14,7 +50,11 @@ public class TrueList {
 		TrueList[NO-1]=num;    
 	}
 	
-	public static int[][] turnToKarnaughMap(int TrueListTemp[]) {
+	
+	/*
+	 * 转化方法
+	 */
+	public static int[][] TrueListToKarnaughMap(int TrueListTemp[]) {
 		int MapListTemp[][]=new int[4][4];
 		int x=0;
 		for(int i=0;i<4;i++)
@@ -37,44 +77,8 @@ public class TrueList {
 			}
 		return MapListTemp;
 	}
-	
-	public static SingleLinkedList TrueListToLK(int TrueListTemp[]) {
-		SingleLinkedList SL=null;
-		int list[] =new int [4];
-		int temp=0;
-		int TrueListTempValue[][]=new int [16][4];
-		
-		SingleLinkedList SLForTrueList=new SingleLinkedList();
-		SingleLinkedList.Node SNForTrueList;
-		SNForTrueList = SLForTrueList.back();
-		
-		
-		for(int x=0;x<4;x++) {  //初始化第一项
-			TrueListTempValue[0][x]=0;
-		}
-		
-		for(int i=0;i<16;i++) {	//为接下去的15项赋值
-			for(int a=0;a<4;a++) list[a]=0;
-			temp=i;
-			int m=0;
-			while(temp/2!=0) {
-				list[m]=temp%2;
-				temp=i/2;
-				m++;
-			}
-			for(int j=0;j<4;j++) {
-				TrueListTempValue[i][j]=list[j];
-			}
-		}
-		for(int u=0;u<16;u++) {
-			if(TrueList[u]==1) {
-				if(SNForTrueList==null) {
-					for(int j=0;j<4;j++) {
-						SLForTrueList.addNext(SLForTrueList,returnStr(j,TrueListTempValue[u][j]));
-					}
-				}
-			}
-		}
-		return SL;
+	public static void main(String args[]) {
+		Init();
+		printTureList(binNum);
 	}
 }
