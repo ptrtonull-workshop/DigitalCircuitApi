@@ -55,7 +55,7 @@ public class TrueList {
 	/*
 	 * 转化方法
 	 */
-	public static int[][] TrueListToKarnaughMap(int TrueListTemp[]) {
+	public static int[][] TrueListToKarnaughMap(int TrueListTemp[]) { //转化
 		int MapListTemp[][]=new int[4][4];
 		int x=0;
 		for(int i=0;i<4;i++)
