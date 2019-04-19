@@ -9,20 +9,21 @@ public class TrueList {
 	
 	public static void  Init()  {		//初始化真值表
 		int temp=0;
-		int m=0;
+		int m;
 		for(int x=0;x<4;x++) {  //初始化第一项
 			binNum[0][x]=0;
 		}
 		
-		for(int i=0;i<16;i++)
-			for(int j=0;j<5;j++) {
-				temp=i;
-				while(temp/2!=0) {
-					binNum[m][j]=temp%2;
-					temp=i/2;
-					m++;
-				}
+		for(int i=0;i<16;i++) {
+			temp=i;
+			m=3;
+			while(temp!=0) {
+				binNum[m][i]=temp%2;
+				temp=temp/2;
+				m-=1;
 			}
+		}
+			
 		for(int q=0;q<16;q++) {   //初始化输出值
 			binNum[4][q]=TrueList[q];
 		}
@@ -32,6 +33,7 @@ public class TrueList {
 			for(int j=0;j<5;j++) {
 				System.out.print(binNum[j][i]);
 				if(j==4) System.out.println("");
+				else if(j==3) System.out.print("|");
 				else System.out.print(" ");
 			}
 	}
@@ -49,7 +51,6 @@ public class TrueList {
 	public static void init(int NO,int num) {//赋值方法
 		TrueList[NO-1]=num;    
 	}
-	
 	
 	/*
 	 * 转化方法
