@@ -15,7 +15,7 @@ public class Module74HC148 {
 			int ysnor;
 			OperationSymbol os=new OperationSymbol();
 			inputtemp[0]=os.not(inputtemp[0]);
-			return os.not(os.manyAnd(inputtemp));
+			return os.not(os.many(inputtemp,"and"));
 		}
 	}
 	
