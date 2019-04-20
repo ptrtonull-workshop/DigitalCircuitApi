@@ -14,6 +14,8 @@ public class OperationSymbol {  //运算符
 		if(a==1) return 0;
 		else return 1;
 	}
+		
+	
 	
 	public static int nand(int a,int b) { //与非
 		return not(and(a,b));
@@ -24,7 +26,7 @@ public class OperationSymbol {  //运算符
 	public static int AndNor(int a,int b,int c,int d) { //与或非
 		return not(or(and(a,b),and(c,d)));
 	}
-	
+		
 	public static int ExclusiveOr(int a,int b) { //异或
 		//return or(and(a,not(b)),and(not(a),b));
 		if(a==b) return 0;
@@ -35,4 +37,24 @@ public class OperationSymbol {  //运算符
 		if(a==b) return 1;
 		else return 0;
 	}
+	
+	
+	
+	public static int manyAnd(int inputtemp[]) {
+		int manyand=inputtemp[0];
+		for(int i=1;i<inputtemp.length;i++) {
+			manyand= and(inputtemp[i],manyand);
+		}
+		return manyand;
+	}
+	
+	public static void main(String args[]) {
+		int input []=new int[3];
+		input[0]=0;
+		input[1]=1;
+		input[2]=1;
+		System.out.println(manyAnd(input));
+		
+	}
+	
 }
