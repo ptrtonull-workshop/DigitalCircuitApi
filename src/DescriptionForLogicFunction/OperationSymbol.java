@@ -39,7 +39,6 @@ public class OperationSymbol {  //运算符
 	}
 	
 	
-	
 	public static int manyAnd(int inputtemp[]) {
 		int manyand=inputtemp[0];
 		for(int i=1;i<inputtemp.length;i++) {
@@ -48,12 +47,33 @@ public class OperationSymbol {  //运算符
 		return manyand;
 	}
 	
+	public static int manyOr(int inputtemp[]) {
+		int manyor=inputtemp[0];
+		for(int i=1;i<inputtemp.length;i++) {
+			manyor= or(inputtemp[i],manyor);
+		}
+		return manyor;
+	}
+	
+	public static int many(int inputtemp[],String choose) {
+		int many=inputtemp[0];
+		for(int i=1;i<inputtemp.length;i++) {
+			switch(choose) {
+				case("and"): many= and(inputtemp[i],many);break;
+				case("or"): many = or(inputtemp[i],many);break;
+				default : many=-1;  //错误提示
+			}
+		}
+		if(many==-1) System.out.println("没有这一项");
+		return many;
+	}
+	
 	public static void main(String args[]) {
 		int input []=new int[3];
 		input[0]=0;
 		input[1]=1;
 		input[2]=1;
-		System.out.println(manyAnd(input));
+		System.out.println(many(input,"and"));
 		
 	}
 	
