@@ -1,10 +1,20 @@
+/*
+ * 74HC148芯片，主要功能：
+ * 1.控制输出端接口instructions类：
+ * 	 1.YesNor(Yes')
+ * 	 2.YsNor(YsNor')
+ * 2.编码输出端接口outPut类：
+ * 	 1.Y0Nor(Y0')
+ * 	 2.Y1Nor(Y1')
+ *   3.Y2Nor(Y2')
+ */
 package LogicCircuitModule;
 import DescriptionForLogicFunction.OperationSymbol;
 
 public class Module74HC148 {
-	static int input[]= {0,0,0,0,0,0,0,0,1};// 0-7 I0到I7，8：S
-	static int output[]= {0,0,0};
-	
+	static int input[]= {0,0,0,0,0,0,0,0,1};// 输入端 [0-7][I0到I7]  8[S端]
+	static int output[]= {0,0,0};//输出端Y0-Y2
+/*********************控制输出端接口instructions类****************/
 	static class instructions{
 		public static int YexNor(int inputtemp[]) {
 			int yesnor=0;
@@ -20,7 +30,7 @@ public class Module74HC148 {
 			return os.not(os.many(inputtemp,"and"));
 		}
 	}
-	
+/*********************编码输出端接口outPut类***************************/
 	static class outPut{
 		public static int Y0Nor(int inputtemp[]) {
 			int outPutTemp;
@@ -48,7 +58,7 @@ public class Module74HC148 {
 			return os.and(outPutTemp,inputtemp[0]);
 			
 		}
-		public static int Y2Nor(int inputtemp[]) {//
+		public static int Y2Nor(int inputtemp[]) {
 			int outPutTemp;
 			OperationSymbol os=new OperationSymbol();
 			int tmp[]=new int [4];
