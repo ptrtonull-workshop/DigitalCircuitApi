@@ -63,6 +63,18 @@ public class OperationSymbol {
 		input[1]=1;
 		input[2]=1;
 		System.out.println(many(input,"and"));
-		
+	}
+/**************扩展逻辑门*****************/
+/*
+ * transform gate 传输门
+ * 只有两个控制端符合C=1，C'=0
+ * 数据才会杯被传输到输出端
+ */
+	public static int TG(int input,int controlOne,int controlTwoNor) {
+		int output=0;
+		if(controlOne==1&&controlTwoNor==0) {
+			output = input;
+		}
+		return output;
 	}
 }
