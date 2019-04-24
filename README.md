@@ -12,4 +12,6 @@
 ### LogicCircuitModule
 + 74HC148芯片
 + 74HC138芯片
++ 74HC153
++ BS201A
 
