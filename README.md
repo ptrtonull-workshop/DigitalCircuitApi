@@ -1,5 +1,5 @@
 ## DigitalCircuitApi
-把数电数字化
+把数电数字化   点击[这里](https://github.com/ptrtonull-workshop/DigitalCircuitApi/wiki)查看本项目的wiki，获得更多的帮助！
 ### 教材说明：
 + 数字电电子技术基础(第六版)
 + 清华大学电子教研组
