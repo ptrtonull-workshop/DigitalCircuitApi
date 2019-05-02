@@ -15,3 +15,6 @@
 + 74HC153芯片
 + BS201A芯片
 
+### wiki在此
+
+点击[这里](https://github.com/ptrtonull-workshop/DigitalCircuitApi/wiki)查看本项目的wiki，获得更多的帮助！
